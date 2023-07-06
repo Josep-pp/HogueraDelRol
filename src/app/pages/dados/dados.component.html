@@ -1,0 +1,389 @@
+<div class="container mb-5">
+  <div class="row">
+    <div class="col-12">
+      <p>
+        Elige la cantidad de dados que quieras lanzar (hasta 10) y del tipo que te interesen, un bono apropiado para cada tirada y pulsa Lanzar. En caso de que elijas el d?, elige también el dado que quieras lanzar, úsalo para calcular algún dado extraño o para lanzar unos dados extra si necesitas más de 10 . Se calculará un ronda con todos los elegidos que te mostrará qué número ha salido en cada dado, la suma total con el bono y la suma de todo lo lanzado. No perderás la información indicada en el lanzamiento para que puedas hacer tiradas repetitivas con más facilidad.
+        <br>
+        <br>
+        Si estás viendo esta página desde un móvil o tablet cada lanzamiento te llevará a la tabla de lanzamientos. En ella encontrarás botones para desplazarte rápidamente al dado que quieras modificar en tu siguiente tirada.
+      </p>
+
+    </div>
+  </div>
+  <hr>
+</div>
+
+
+<div class="container-fluid">
+
+  <div class="row justify-content-around">
+    <div class="col-lg-7 col-sm-12">
+      <div class="container">
+        <form [formGroup]="formulario" (submit)="formDados()">
+        <div class="row justify-content-center">
+
+          <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="card" style="width: 15rem;">
+              <div class="card-body">
+                <div class="container">
+                  <h4 class="card-title text-center" id="d2">d2</h4>
+                  <div class="row justify-content-center">
+                    <img class="col-8" src="assets/images/d2.jpg" style="width: 70px; height: 70px" alt="d2">
+                  </div>
+                </div>
+                    <mat-form-field>
+                      <mat-label>Cantidad de dados</mat-label>
+                      <mat-select formControlName="cantiD2">
+                        <mat-option *ngFor="let i of cantidadDados" [value]="i">
+                          {{i}}
+                        </mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                    <mat-form-field>
+                      <mat-label>Bono</mat-label>
+                      <mat-select  formControlName="bonoD2">
+                        <mat-option *ngFor="let i of bonosDadosPequenos" [value]="i">
+                          {{i}}
+                        </mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                <a (click)="scroll('tablaDados')"><button type="submit" class="btn btn-dark">Lanzar</button></a>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="card" style="width: 15rem">
+              <div class="card-body">
+                <h4 class="card-title" id="d6">d6</h4>
+                <div class="container">
+                  <div class="row justify-content-center">
+                    <img class="col-8" src="assets/images/d6.jpg" style="width: 70px; height: 70px" alt="d6">
+                  </div>
+                </div>
+                <mat-form-field>
+                  <mat-label>Cantidad de dados</mat-label>
+                  <mat-select formControlName="cantiD6">
+                    <mat-option *ngFor="let i of cantidadDados" [value]="i">
+                      {{i}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <mat-form-field>
+                  <mat-label>Bono</mat-label>
+                  <mat-select formControlName="bonoD6">
+                    <mat-option *ngFor="let i of bonosDadosPequenos" [value]="i">
+                      {{i}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <a (click)="scroll('tablaDados')"><button type="submit" class="btn btn-dark">Lanzar</button></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="card" style="width: 15rem">
+              <div class="card-body">
+                <h4 class="card-title" id="d8">d8</h4>
+                <div class="container">
+                  <div class="row justify-content-center">
+                    <img class="col-8" src="assets/images/d8.jpg" style="width: 70px; height: 70px" alt="d8">
+                  </div>
+                </div>
+                <mat-form-field>
+                  <mat-label>Cantidad de dados</mat-label>
+                  <mat-select formControlName="cantiD8">
+                    <mat-option *ngFor="let i of cantidadDados" [value]="i">
+                      {{i}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <mat-form-field>
+                  <mat-label>Bono</mat-label>
+                  <mat-select formControlName="bonoD8">
+                    <mat-option *ngFor="let i of bonosDadosPequenos" [value]="i">
+                      {{i}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <a (click)="scroll('tablaDados')"><button type="submit" class="btn btn-dark">Lanzar</button></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="card" style="width: 15rem">
+              <div class="card-body">
+                <h4 class="card-title" id="d10">d10</h4>
+                <div class="container">
+                  <div class="row justify-content-center">
+                    <img class="col-8" src="assets/images/d10.jpg" style="width: 70px; height: 70px" alt="d10">
+                  </div>
+                </div>
+                <mat-form-field>
+                  <mat-label>Cantidad de dados</mat-label>
+                  <mat-select formControlName="cantiD10">
+                    <mat-option *ngFor="let i of cantidadDados" [value]="i">
+                      {{i}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <mat-form-field>
+                  <mat-label>Bono</mat-label>
+                  <mat-select formControlName="bonoD10">
+                    <mat-option *ngFor="let i of bonosDadosMedios" [value]="i">
+                      {{i}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <a (click)="scroll('tablaDados')"><button type="submit" class="btn btn-dark">Lanzar</button></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="card" style="width: 15rem">
+              <div class="card-body">
+                <h4 class="card-title" id="d12">d12</h4>
+                <div class="container">
+                  <div class="row justify-content-center">
+                    <img class="col-8" src="assets/images/d12.jpg" style="width: 70px; height: 70px" alt="d12">
+                  </div>
+                </div>
+                <mat-form-field>
+                  <mat-label>Cantidad de dados</mat-label>
+                  <mat-select formControlName="cantiD12">
+                    <mat-option *ngFor="let i of cantidadDados" [value]="i">
+                      {{i}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <mat-form-field>
+                  <mat-label>Bono</mat-label>
+                  <mat-select formControlName="bonoD12">
+                    <mat-option *ngFor="let i of bonosDadosMedios" [value]="i">
+                      {{i}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <a (click)="scroll('tablaDados')"><button type="submit" class="btn btn-dark">Lanzar</button></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="card" style="width: 15rem">
+              <div class="card-body">
+                <h4 class="card-title" id="d20">d20</h4>
+                <div class="container">
+                  <div class="row justify-content-center">
+                    <img class="col-8" src="assets/images/d20.jpg" style="width: 70px; height: 70px" alt="d20">
+                  </div>
+                </div>
+                <mat-form-field>
+                  <mat-label>Cantidad de dados</mat-label>
+                  <mat-select formControlName="cantiD20">
+                    <mat-option *ngFor="let i of cantidadDados" [value]="i">
+                      {{i}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <mat-form-field>
+                  <mat-label>Bono</mat-label>
+                  <mat-select formControlName="bonoD20">
+                    <mat-option *ngFor="let i of bonosDadosMedios" [value]="i">
+                      {{i}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <a (click)="scroll('tablaDados')"><button type="submit" class="btn btn-dark">Lanzar</button></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="card" style="width: 15rem">
+              <div class="card-body">
+                <h4 class="card-title" id="d100">d100</h4>
+                <div class="container">
+                  <div class="row justify-content-center">
+                    <img class="col-8" src="assets/images/d100.jpg" style="width: 70px; height: 70px" alt="d100">
+                  </div>
+                </div>
+                <mat-form-field>
+                  <mat-label>Cantidad de dados</mat-label>
+                  <mat-select formControlName="cantiD100">
+                    <mat-option *ngFor="let i of cantidadDados" [value]="i">
+                      {{i}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <mat-form-field>
+                  <mat-label>Bono</mat-label>
+                  <mat-select formControlName="bonoD100">
+                    <mat-option *ngFor="let i of bonosDadosGrandes" [value]="i">
+                      {{i}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <a (click)="scroll('tablaDados')"><button type="submit" class="btn btn-dark">Lanzar</button></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="card" style="width: 15rem">
+              <div class="card-body">
+                <h4 class="card-title" id="d?">d?</h4>
+
+
+                <mat-form-field>
+                  <mat-label>Elige tu dado</mat-label>
+                  <mat-select formControlName="elecionDincognita">
+                    <mat-option *ngFor="let i of eleccionD" [value]="i">
+                      {{i}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <mat-form-field>
+                  <mat-label>Cantidad de dados</mat-label>
+                  <mat-select formControlName="cantiDincognita">
+                    <mat-option *ngFor="let i of cantidadDados" [value]="i">
+                      {{i}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                 <mat-form-field>
+                  <mat-label>Bono</mat-label>
+                  <mat-select formControlName="bonoDincognita">
+                    <mat-option *ngFor="let i of bonosDadosGrandes" [value]="i">
+                      {{i}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <a (click)="scroll('tablaDados')"><button type="submit" class="btn btn-dark">Lanzar</button></a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        </form>
+      </div>
+
+
+
+    </div>
+    <div class="col-lg-4 col-sm-12" >
+
+      <table class="table" id="tablaDados">
+        <thead>
+        <tr>
+          <th scope="col">Dado</th>
+          <th scope="col">1º</th>
+          <th scope="col">2º</th>
+          <th scope="col">3º</th>
+          <th scope="col">4º</th>
+          <th scope="col">5º</th>
+          <th scope="col">6º</th>
+          <th scope="col">7º</th>
+          <th scope="col">8º</th>
+          <th scope="col">9º</th>
+          <th scope="col">10º</th>
+          <th scope="col">Bono</th>
+          <th scope="col">Total</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr>
+          <td *ngIf="bolSmall; else elseTd2"><a class="btn-outline-dark btn" (click)="scroll('d2')">d2 </a></td>
+          <ng-template #elseTd2> <td>d2</td></ng-template>
+          <td *ngFor="let d2 of arrayD2">{{d2}}</td>
+          <td *ngFor="let blank of rellenoD2">{{blank}}</td>
+          <td *ngIf="arrayD2.length>0 ">{{bonoD2}}</td>
+          <td *ngIf="arrayD2.length>0">{{totalD2}}</td>
+        </tr>
+
+        <tr>
+          <td *ngIf="bolSmall; else elseTd6"><a class="btn-outline-dark btn" (click)="scroll('d6')">d6 </a></td>
+          <ng-template #elseTd6> <td>d6</td></ng-template>
+          <td *ngFor="let d6 of arrayD6">{{d6}}</td>
+          <td *ngFor="let blank of rellenoD6">{{blank}}</td>
+          <td *ngIf="arrayD6.length>0 ">{{bonoD6}}</td>
+          <td *ngIf="arrayD6.length>0">{{totalD6}}</td>
+        </tr>
+
+        <tr>
+          <td *ngIf="bolSmall; else elseTd8"><a class="btn-outline-dark btn" (click)="scroll('d8')">d8 </a></td>
+          <ng-template #elseTd8> <td>d8</td></ng-template>
+          <td *ngFor="let d8 of arrayD8">{{d8}}</td>
+          <td *ngFor="let blank of rellenoD8">{{blank}}</td>
+          <td *ngIf="arrayD8.length>0 ">{{bonoD8}}</td>
+          <td *ngIf="arrayD8.length>0">{{totalD8}}</td>
+        </tr>
+
+        <tr>
+          <td *ngIf="bolSmall; else elseTd10"><a class="btn-outline-dark btn" (click)="scroll('d10')">d10 </a></td>
+          <ng-template #elseTd10> <td>d10</td></ng-template>
+          <td *ngFor="let d10 of arrayD10">{{d10}}</td>
+          <td *ngFor="let blank of rellenoD10">{{blank}}</td>
+          <td *ngIf="arrayD10.length>0 ">{{bonoD10}}</td>
+          <td *ngIf="arrayD10.length>0">{{totalD10}}</td>
+        </tr>
+
+        <tr>
+          <td *ngIf="bolSmall; else elseTd12"><a class="btn-outline-dark btn" (click)="scroll('d12')">d12 </a></td>
+          <ng-template #elseTd12> <td>d12</td></ng-template>
+          <td *ngFor="let d12 of arrayD12">{{d12}}</td>
+          <td *ngFor="let blank of rellenoD12">{{blank}}</td>
+          <td *ngIf="arrayD12.length>0 ">{{bonoD12}}</td>
+          <td *ngIf="arrayD12.length>0">{{totalD12}}</td>
+        </tr>
+
+        <tr>
+          <td *ngIf="bolSmall; else elseTd20"><a class="btn-outline-dark btn" (click)="scroll('d20')">d20 </a></td>
+          <ng-template #elseTd20> <td>d20</td></ng-template>
+          <td *ngFor="let d20 of arrayD20">{{d20}}</td>
+          <td *ngFor="let blank of rellenoD20">{{blank}}</td>
+          <td *ngIf="arrayD20.length>0 ">{{bonoD20}}</td>
+          <td *ngIf="arrayD20.length>0">{{totalD20}}</td>
+        </tr>
+
+        <tr>
+          <td *ngIf="bolSmall; else elseTd100"><a class="btn-outline-dark btn" (click)="scroll('d100')">d100 </a></td>
+          <ng-template #elseTd100> <td>d100</td></ng-template>
+          <td *ngFor="let d100 of arrayD100">{{d100}}</td>
+          <td *ngFor="let blank of rellenoD100">{{blank}}</td>
+          <td *ngIf="arrayD100.length>0 ">{{bonoD100}}</td>
+          <td *ngIf="arrayD100.length>0">{{totalD100}}</td>
+        </tr>
+
+        <tr>
+          <td *ngIf="bolSmall; else elseTdincognita"><a class="btn-outline-dark btn" (click)="scroll('d?')">d? </a></td>
+          <ng-template #elseTdincognita> <td>d?</td></ng-template>
+          <td *ngFor="let dincognita of arrayDincognita">{{dincognita}}</td>
+          <td *ngFor="let blank of rellenoDincognita">{{blank}}</td>
+          <td *ngIf="arrayDincognita.length>0 ">{{bonoDincognita}}</td>
+          <td *ngIf="arrayDincognita.length>0">{{totalDincognita}}</td>
+        </tr>
+
+        <tr>
+          <td *ngFor="let blank of rellenoTotal">{{blank}}</td>
+          <td>{{total}}</td>
+        </tr>
+
+
+        </tbody>
+
+
+
+      </table>
+
+    </div>
+
+  </div>
+
+</div>

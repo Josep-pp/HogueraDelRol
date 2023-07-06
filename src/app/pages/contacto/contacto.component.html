@@ -1,0 +1,56 @@
+
+
+<div class="container">
+      <div class="row">
+        <div class="col-12">
+          <p>
+            Si tienes algo que comentarnos sobre este proyecto, alguna sugerencia que quieras sobre cómo desarrollar un nuevo oráculo, un bug que has detectado en la sección de dados o cualquier cosa que creas productivo comentar, puedes hacérnoslo llegar con este formulario.
+            <br>
+            <br>
+            Por favor rellena todos los campos. Necesitamos saber cómo dirigirnos a tí sí te enviamos una respuesta, a qué dirección de correo enviarla  (una dirección válida) y por supuesto indícanos que quieres hacernos llegar en el asunto.
+            <br>
+            <br>
+            Esperamos que envíes algo constructivo y ayudes a hacer crecer el proyecto si estás interesado, por supuesto nos reservamos el derecho a no contestar, tanto por si estamos saturados como si nos mandas algo poco educado. No obstante no te abstengas de enviarnos tus impresiones e inquietudes. <span class="fw-bold">La hoguera del rol</span> pretende ser un proyecto que se desarrolle para ayudar a la comunidad rolera y acercar el rol en solitario a más gente.
+            <br>
+            <br>
+            <span class="fw-bold">¡Gracias de antemano por contactar!</span>
+          </p>
+        </div>
+      </div>
+  <hr>
+      <form class="row justify-content-center mt-5 me-md-3 me-sm-5" [formGroup]="formulario" (submit)="form()">
+
+        <div class="col-2">
+          <mat-form-field>
+            <mat-label>Nombre</mat-label>
+            <input matInput formControlName="nombre">
+            <mat-error *ngIf="formulario.get('nombre')?.errors?.['required']"> Requerido </mat-error>
+          </mat-form-field>
+
+
+          <mat-form-field>
+            <mat-label>email</mat-label>
+            <input matInput formControlName="email">
+            <mat-error *ngIf="formulario.get('email')?.errors?.['required']"> Requerido </mat-error>
+            <mat-error *ngIf="formulario.get('email')?.errors?.['email']"> No es un email válido</mat-error>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Asunto</mat-label>
+            <textarea matInput formControlName="asunto"></textarea>
+            <mat-error *ngIf="formulario.get('asunto')?.errors?.['required']"> Requerido </mat-error>
+          </mat-form-field>
+
+          <button type="submit" class="btn btn-dark">Enviar</button>
+
+        </div>
+
+      </form>
+      <div class="row justify-content-center">
+        <div class="col-6 mt-5">
+          <h2 class="text-center">{{mensajeRespuesta}}</h2>
+        </div>
+      </div>
+
+  </div>
+

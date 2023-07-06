@@ -1,0 +1,103 @@
+<div class="container">
+
+  <div class="row">
+    <div class="col-lg-6 col-sm-12">
+
+      <p>
+        Estás en el módulo de oráculos, aquí encontrarás respuestas a tus preguntas. Pulsa el botón de consultar cuando quieras utilizar uno de los oráculos.
+      </p>
+
+      <h3 class="fw-bold">
+        Oráculo de Sí o No
+      </h3>
+      <p>
+        Haz una respuesta que pueda ser respondida con un Sí o un No. Decide cómo de probable o improbable es y su factor de caos (si no dices nada se hará una consulta con neutral y el factor de caos 5).
+        <br>
+        <br>
+        Se te responderá Sí o No según cómo de probable sea (incluso en los extremos de imposible y seguro la respuesta no está garantizada, todo puede dar un giro inesperado). Además el oráculo puede decir que tu pregunta no tiene sentido, que en la ficción algo no es como tu lo estás asumiendo (consulta otros oráculos si es necesario para clarificar).
+        <br>
+        <br>
+        El factor de caos determina la probabilidad de respuestas extremas (si le preguntas si alguién es hostil, un extremadamente sí podría implicar que te está atacando con una rabia terrible al verte) y la ocurrencia de eventos aleatorios (consulta el oráculo de Descripción para ver que implican). A más caos más posibilidades de recibir estás respuestas.
+      </p>
+      <h3 class="fw-bold">
+        Oráculo de Descripción
+      </h3>
+      <p>
+        Te dará una descripción evocadora para que tu mente revele que implica según el contexto de la ficción que se está viviendo en la partida.
+      </p>
+      <h3 class="fw-bold">
+        Oráculo de Acción y su objetivo
+      </h3>
+      <p>
+        Similar al oráculo de Descripción pero centrado en las acciones y a donde apuntan estás. Usalo para averiguar intenciones de agentes de dentro de la ficción, averiguar que quieren de ti y los modos de proceder que tengan sentido en tu partida.
+      </p>
+
+    </div>
+
+    <div class="col-lg-6 col-sm-12">
+      <img class="img-fluid" src="assets/images/oraculo1.jpg" alt="Una bola adivinadora con un ojo en su interior">
+    </div>
+    <hr>
+  </div>
+
+
+
+  <div class="row justify-content-around mt-5">
+    <div class="col-lg-4">
+      <div class="card" style="width: 15rem;">
+
+        <div class="card-body">
+          <h4 class="card-title">Oráculo de Sí o No</h4>
+          <form [formGroup]="formSiNo" (submit)="oraculoSiNo()">
+          <mat-form-field>
+            <mat-label>¿Como de probable es?</mat-label>
+            <mat-select formControlName="probable">
+              <mat-option *ngFor="let i of arrayProbable" [value]="i">
+                {{i}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Factor de Caos</mat-label>
+            <mat-select formControlName="caos">
+              <mat-option *ngFor="let i of arrayCaos" [value]="i">
+                {{i}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <button type="submit" class="btn btn-dark">Consultar</button>
+            <h2 class="mt-2">{{respuestaSiNo}}</h2>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4">
+      <div class="card" style="width: 15rem;">
+
+        <div class="card-body">
+          <h4 class="card-title">Oráculo de Descripción</h4>
+
+            <button class="btn btn-dark" (click)="consultarDescripcion()">Consultar</button>
+            <h2 class="mt-2">{{descriptor1}}</h2>
+            <h2> {{descriptor2}}</h2>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-4">
+      <div class="card" style="width: 15rem;">
+
+        <div class="card-body">
+          <h4 class="card-title">Oráculo de Acción y su Objetivo</h4>
+
+          <button class="btn btn-dark" (click)="consultarAccionObjetivo()">Consultar</button>
+          <h2 class="mt-2">{{accion}}</h2>
+          <h2> {{objetivo}}</h2>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
